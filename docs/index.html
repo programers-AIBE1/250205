@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>점심 메뉴 추천</title>
+    <title>오늘의 게임 추천</title>
+    <!-- OG 태그 -->
+    <meta property="og:title" content="오늘 뭐하지?" />
+    <meta
+      property="og:description"
+      content="게임이 하고 싶은 당신을 위한 Gemini, Deepseek을 이용한 게임 추천!"
+    />
+    <meta
+      property="og:image"
+      content="https://github.com/programers-AIBE1/250205/blob/main/gameog.jpg?raw=true"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
   </head>
   <body>
     <header>
@@ -17,6 +42,7 @@
           <option value="2">deepseek-r1</option>
         </select>
       </label>
+      <p></p>
       <textarea name="textData"></textarea>
       <button>등록</button>
     </form>
@@ -71,7 +97,7 @@
               box.appendChild(reply);
               box.style.padding = "12px";
               box.style.margin = "4px";
-              box.style.backgroundColor = "beige";
+              box.style.backgroundColor = "lightgray";
               box.style.border = "1px solid black";
               reply.textContent = d.reply;
               tmp.appendChild(box);
@@ -122,7 +148,7 @@
           const response = await fetch(url, {
             method: "POST", // POST 요청
             body: JSON.stringify({
-              text: `너는 20년 경력의 메뉴 추천 전문가야. {${text}}의 메시지를 바탕으로, 점심 메뉴를 추천해주고, 50자 이내에 평문으로 작성해줘.`,
+              text: `너는 20년 경력의 게임 전문가야. {${text}}의 메시지를 바탕으로, 오늘 할만한 게임을 추천해주고, 50자 이내에 평문으로 작성해줘.`,
             }),
             headers: {
               "Content-Type": "application/json", // JSON 형식의 데이터 전송
@@ -139,7 +165,7 @@
           const response = await fetch(url, {
             method: "POST", // POST 요청
             body: JSON.stringify({
-              text: `너는 20년 경력의 메뉴 추천 전문가야. {${content}}의 메시지를 바탕으로, 점심 메뉴를 추천해주고, 50자 이내에 평문으로 작성해줘. 결과는 한글로 작성해줘.`,
+              text: `너는 20년 경력의 게임 전문가야. {${content}}의 메시지를 바탕으로, 오늘 할만한 게임을 추천해주고, 50자 이내에 평문으로 작성해줘. 결과는 한글로 작성해줘.`,
             }),
             headers: {
               "Content-Type": "application/json", // JSON 형식의 데이터 전송
